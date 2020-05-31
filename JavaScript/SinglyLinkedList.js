@@ -79,6 +79,24 @@ class LinkedList {
         console.log(`Length of list is ${length}`);
     }
 
+    // Reverse the list
+    reversList() {
+        // For swap need TEMP ;
+        let temp, nextNode = null;
+        // Loop up to last node
+        while (this.head) {
+            // Select second NODE As a current NODE
+             nextNode = this.head.next;
+            // Assign next value for head Node
+            this.head.next = temp;
+            // Assigning TEMP as a HEAD NODE 
+            temp = this.head;
+            // Assigning HEAD as NEXT NODE
+            this.head = nextNode;
+        }
+        this.head = temp;
+    }
+
     // Printing list
     printForword() {
         let current = this.head;
@@ -104,9 +122,11 @@ linkedList.pushFront(5);
 linkedList.pushFront(6);
 linkedList.pushFront(3);
 linkedList.pushFront(8);
-
-// Pushing node to the middle of the list
- linkedList.pushAfterNode(3, 4)
-console.log("Pushing element in Front");
 linkedList.printForword();
-linkedList.length();
+// Pushing node to the middle of the list
+// linkedList.pushAfterNode(3, 4)
+// console.log("Pushing element in Front");
+// linkedList.printForword();
+// linkedList.length();
+linkedList.reversList();
+linkedList.printForword();
